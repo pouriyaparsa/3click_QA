@@ -9,7 +9,10 @@ driver.find_elements(By.CLASS_NAME,'location-btn')[0].click()
 time.sleep(1)
 search = driver.find_element(By.ID,'input-150').send_keys("ist")
 time.sleep(1)
-result = driver.find_elements(By.CLASS_NAME,'mr-1')[1].click()
+result = driver.find_elements(By.CLASS_NAME,'mr-1')
+for i in range(1,4,1):
+    print(result[i].text)
+print(result[3].text)
 ist = driver.find_elements(By.CLASS_NAME,'text-truncate')[0].text
 print(ist)
 assert ist == 'استانبول'
