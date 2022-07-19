@@ -50,3 +50,4 @@ class Action:
         Enter_text.send_keys(Keys.CONTROL + "a")
         Enter_text.send_keys(Keys.DELETE)
     driver.quit()
+1
