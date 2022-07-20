@@ -10,7 +10,6 @@ import time
 def log_event(message, log_console=True, log_to_file=True):
     if log_console:
         print(message)
-
     if log_to_file:
         with open('search.txt', 'a', encoding='utf-8') as f:
             f.write(message)
@@ -34,7 +33,7 @@ class Action:
                    'swa': 'صبیحا'
                    }
     for keyword in search_dict.keys():
-        log_event(f'       >>>> The searched word is equal to {keyword}', log_console=False, log_to_file=True)
+        log_event(f'       >>>> The searched word is equal to {keyword}')
         Enter_text.send_keys(keyword)
         time.sleep(2)
         total_result = driver.find_elements(By.CLASS_NAME, 'v-item-group')
@@ -46,7 +45,7 @@ class Action:
                 log_event("وجود دارد")
             else:
                 log_event(search_dict.get(keyword))
-                log_event('ندارد')
+                log_event('وجود ندارد')
         Enter_text.send_keys(Keys.CONTROL + "a")
         Enter_text.send_keys(Keys.DELETE)
     driver.quit()
